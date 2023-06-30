@@ -49,14 +49,18 @@ class Expenses {
         return `${this.finalCurrency} ${total.toFixed(2).toString()}`;
     }
     remove(id) {
-        throw new Error("Method not implemented.");
+        const items = this.getItems().filter(item => {
+            return item.id !== id;
+        });
+        this.expenses.createFrom(items);
+        return true;
     }
     convertCurrency(item, currency) {
         switch (item.cost.currency) {
             case 'EUR':
                 switch (currency) {
                     case 'USD':
-                        return item.cost.number * 0.9;
+                        return item.cost.number / 0.9;
                         break;
                     default:
                         return item.cost.number;
@@ -65,7 +69,7 @@ class Expenses {
             case 'USD':
                 switch (currency) {
                     case 'EUR':
-                        return item.cost.number / 0.9;
+                        return item.cost.number * 0.9;
                         break;
                     default:
                         return item.cost.number;

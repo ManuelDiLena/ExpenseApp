@@ -6,7 +6,7 @@ interface Price {
 }
 
 interface ExpenseItem {
-    id:number,
+    id?:number,
     title:string,
     cost:Price
 }
@@ -87,7 +87,12 @@ class Expenses implements IExpenses {
     }
 
     remove(id: number): boolean {
-        throw new Error("Method not implemented.");
+        const items = this.getItems().filter(item => {
+            return item.id !== id;
+        });
+
+        this.expenses.createFrom(items);
+        return true;
     }
 
     private convertCurrency(item:ExpenseItem, currency:Currency):number {
@@ -95,7 +100,7 @@ class Expenses implements IExpenses {
             case 'EUR':
                 switch(currency) {
                     case 'USD':
-                        return item.cost.number * 0.9;
+                        return item.cost.number / 0.9;
                         break;
 
                     default:
@@ -106,7 +111,7 @@ class Expenses implements IExpenses {
             case 'USD':
                 switch(currency) {
                     case 'EUR':
-                        return item.cost.number / 0.9;
+                        return item.cost.number * 0.9;
                         break;
 
                     default:
