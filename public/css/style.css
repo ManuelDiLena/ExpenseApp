@@ -1,0 +1,119 @@
+:root {
+    --border: solid 1px #919191;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5E8E4;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+header {
+    background-color: #D1512D;
+    padding: 10px;
+    color: #FFFFFF;
+}
+
+main {
+    width: 600px;
+    margin: 50px auto;
+}
+
+button {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#display {
+    border: var(--border);
+    padding: 40px;
+    text-align: right;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #411530;
+    color: #F5C7A9;
+    border-radius: 5px;
+}
+
+#editor {
+    border: var(--border);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 80% 19%;
+    column-gap: 5px;
+    background-color: #FFFFFF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#editor #inputContainer {
+    display: grid;
+    grid-template-columns: 55% 25% 20%;
+}
+
+#editor input, #editor select {
+    padding: 10px;
+    border: var(--border);
+    outline: none;
+}
+
+#editor button {
+    justify-items: right;
+    background-color: #D1512D;
+    color: #FFFFFF;
+    font-weight: bolder;
+    transition: all 0.3s;
+}
+
+#editor button:hover {
+    background-color: #9C3B20;
+}
+
+#items {
+    border: var(--border);
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#items .item {
+    display: grid;
+    grid-template-columns: 20% 69% 5%;
+    align-items: center;
+    padding: 10px;
+}
+
+#items .item:hover {
+    background-color: #F5C7A9;
+}
+
+#items .item:hover button {
+    opacity: 1;
+}
+
+#items .item button {
+    opacity: 0;
+    padding: 7px 5px;
+    background-color: transparent;
+    color: #880000;
+    cursor: pointer;
+}
+
+#items .item button:hover {
+    background-color: #D1512D;
+    color: #FFFFFF;
+}
+
+#items .item .currency {
+    color: #411530;
+    font-weight: bolder;
+}

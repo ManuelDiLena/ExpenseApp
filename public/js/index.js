@@ -4,6 +4,7 @@ const inputTitle = document.querySelector('#title');
 const inputCost = document.querySelector('#cost');
 const inputCurrency = document.querySelector('#currency');
 const expenses = new Expenses('USD');
+render();
 btnAdd.addEventListener('click', e => {
     if (inputTitle.value !== '' && inputCost.value !== '' && !isNaN(parseFloat(inputCost.value))) {
         const title = inputTitle.value;
